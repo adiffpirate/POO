@@ -90,24 +90,24 @@ public class Archer extends Character
     //setters
     public void setMaxPower(int maxPower)
     {
-       this.maxPower = maxPower;
+       this.maxPower += maxPower;
     }
     
     public void setMaxHp(int maxHp)
     {
-        this.maxHp = maxHp;
+        this.maxHp += maxHp;
     }
     
     public void setPower(int power)
     {
-        if(power > this.maxPower) this.power = this.maxPower;
-        else this.power = power;
+        if(this.power + power > this.maxPower) this.power = this.maxPower;
+        else this.power += power;
     }
     
     public void setHp(int hp)
     {
-        if(hp > this.hp) this.hp = this.maxHp;
-        else this.hp = hp;
+        if(this.hp + hp > this.maxHp) this.hp = this.maxHp;
+        else this.hp += hp;
     }
     
     public void levelUp()
@@ -118,33 +118,33 @@ public class Archer extends Character
     
     public void setXp(int xp)
     {
-        this.xp = xp;
+        this.xp += xp;
         //TO DO: esse método irá chamar levelUp dependendo do valor de xp
     }
     
     public void setAttack(int atk)
     {
-        this.atk = atk;
+        this.atk += atk;
     }
     
     public void setDefense(int def)
     {
-        this.def = def;
+        this.def += def;
     }
     
     public void setSpeed(int speed)
     {
-        this.speed = speed;
+        this.speed += speed;
     }
     
     public void setIntel(int intel)
     {
-        this.intel = intel;
+        this.intel += intel;
     }
     
     public void setBow(int bow)
     {
-        this.bow = bow;
+        this.bow += bow;
     }
     
     //os outros métodos serão implementados posteriormente
