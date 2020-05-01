@@ -23,6 +23,7 @@ public class Warrior extends Character
         this.def = 3;
         this.speed = 1;
         this.intel = 1;
+        this.sword = 1;
     }
     
     //getters
