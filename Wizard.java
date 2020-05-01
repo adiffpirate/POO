@@ -23,6 +23,7 @@ public class Wizard extends Character
         this.def = 2;
         this.speed = 4;
         this.intel = 5;
+        this.wand = 1;
     }
     
     //getters
