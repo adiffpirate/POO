@@ -99,12 +99,14 @@ public class Warrior extends Character
     
     public void setPower(int power)
     {
-        this.power = power;
+        if(power > this.maxPower) this.power = this.maxPower;
+        else this.power = power;
     }
     
     public void setHp(int hp)
     {
-        this.hp = hp;
+        if(hp > this.hp) this.hp = this.maxHp;
+        else this.hp = hp;
     }
     
     public void levelUp()
@@ -116,6 +118,7 @@ public class Warrior extends Character
     public void setXp(int xp)
     {
         this.xp = xp;
+        //TO DO: esse método irá chamar levelUp dependendo do valor de xp
     }
     
     public void setAttack(int atk)
