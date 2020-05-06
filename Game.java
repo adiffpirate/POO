@@ -9,8 +9,8 @@ public class Game
 {
     //instâncias são private
     private 
-    int playerScore, botScore, nBattles;
-    ArrayList <Character> botDeck, playerDeck;
+    int playerOneScore, playerTwoScore, nBattles;
+    ArrayList <Character> playerOneDeck, playerTwoDeck;
         final 
         ArrayList <Character> allCharacters;
         Death death;
@@ -39,27 +39,27 @@ public class Game
     //construtor
     public Game(int maxBattles, Death death)
     {
-        this.playerScore = 0;
-        this.botScore = 0;
+        this.playerOneScore = 0;
+        this.playerTwoScore = 0;
         this.nBattles = 0;
         this.maxBattles = maxBattles;
         this.death = death;
         //TO DO: ler um arquivo de texto para criar allCharacters e um método para gerar botDeck e playerDeck
         //só para não dar erro de compilação, vamos setar como null
         this.allCharacters = null;
-        this.botDeck = null;
-        this.playerDeck = null;
+        this.playerOneDeck = null;
+        this.playerTwoDeck = null;
     }
     
     //getters
-    public int getPlayerScore()
+    public int getPlayerOneScore()
     {
-        return this.playerScore;
+        return this.playerOneScore;
     }
 
-    public int getBotScore()
+    public int getPlayerTwoScore()
     {
-        return this.botScore;
+        return this.playerTwoScore;
     }
     
     public int getNBattles()
@@ -77,12 +77,12 @@ public class Game
         return this.death.getDeath();
     }
     
-    public ArrayList <Character> getPlayerDeck()
+    public ArrayList <Character> getPlayerOneDeck()
     {
         return this.playerDeck;
     }
     
-    public ArrayList <Character> getBotDeck()
+    public ArrayList <Character> getPlayerTwoDeck()
     {
         return this.botDeck;
     }
@@ -93,12 +93,12 @@ public class Game
     }
     
     //setters
-    public void setPlayerScore(int playerScore)
+    public void setPlayerOneScore(int playerOneScore)
     {
         this.playerScore += playerScore;
     }
     
-    public void setBotScore(int botScore)
+    public void setPlayerTwoScore(int playerTwoScore)
     {
         this.botScore += botScore;
     }
@@ -107,4 +107,5 @@ public class Game
     {
         this.nBattles += 1;
     }
+    //outros métodos serão implementados posteriormente
 }
