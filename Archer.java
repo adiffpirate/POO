@@ -4,9 +4,6 @@ package battlegame;
 //classe Archer, herdeira de Character
 public class Archer extends Character
 {
-    //instância privada
-    private int bow;
-        
     //métodos
     //construtor
     public Archer(String name)
@@ -23,7 +20,6 @@ public class Archer extends Character
         this.def = 4;
         this.speed = 2;
         this.intel = 1;
-        this.bow = 1;
     }
     
     //getters
@@ -81,11 +77,6 @@ public class Archer extends Character
     {
         return this.name;
     }
-    
-    public int getBow()
-    {
-        return this.bow;
-    }
         
     //setters
     public void setMaxPower(int maxPower)
@@ -140,12 +131,6 @@ public class Archer extends Character
     public void setIntel(int intel)
     {
         this.intel += intel;
-    }
-    
-    public void setBow(int bow)
-    {
-        this.bow += bow;
-    }
-    
+    }    
     //os outros métodos serão implementados posteriormente
 }
