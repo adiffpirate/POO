@@ -4,9 +4,6 @@ package battlegame;
 //classe Warrior, herdeira de Character
 public class Warrior extends Character
 {
-    //instância privada
-    private int sword;
-        
     //métodos
     //construtor
     public Warrior(String name)
@@ -23,7 +20,6 @@ public class Warrior extends Character
         this.def = 3;
         this.speed = 1;
         this.intel = 1;
-        this.sword = 1;
     }
     
     //getters
@@ -81,11 +77,6 @@ public class Warrior extends Character
     {
         return this.name;
     }
-    
-    public int getSword()
-    {
-        return this.sword;
-    }
         
     //setters
     public void setMaxPower(int maxPower)
@@ -141,11 +132,5 @@ public class Warrior extends Character
     {
         this.intel += intel;
     }
-    
-    public void setSword(int sword)
-    {
-        this.sword += sword;
-    }
-    
     //os outros métodos serão implementados posteriormente
 }
