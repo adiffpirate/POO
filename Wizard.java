@@ -4,9 +4,6 @@ package battlegame;
 //classe Warrior, herdeira de Character
 public class Wizard extends Character
 {
-    //instância privada
-    private int wand;
-        
     //métodos
     //construtor
     public Wizard(String name)
@@ -23,7 +20,6 @@ public class Wizard extends Character
         this.def = 2;
         this.speed = 4;
         this.intel = 5;
-        this.wand = 1;
     }
     
     //getters
@@ -82,11 +78,6 @@ public class Wizard extends Character
         return this.name;
     }
     
-    public int getWand()
-    {
-        return this.wand;
-    }
-        
     //setters
     public void setMaxPower(int maxPower)
     {
@@ -141,11 +132,5 @@ public class Wizard extends Character
     {
         this.intel += intel;
     }
-    
-    public void setWand(int wand)
-    {
-        this.wand += wand;
-    }
-    
     //os outros métodos serão implementados posteriormente
 }
