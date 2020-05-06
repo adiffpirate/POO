@@ -4,9 +4,6 @@ package battlegame;
 //classe Healer, herdeira de Character
 public class Healer extends Character
 {
-    //instância privada
-    private int magic;
-        
     //métodos
     //construtor
     public Healer(String name)
@@ -23,7 +20,6 @@ public class Healer extends Character
         this.def = 4;
         this.speed = 2;
         this.intel = 1;
-        this.magic = 1;
     }
     
     //getters
@@ -81,11 +77,6 @@ public class Healer extends Character
     {
         return this.name;
     }
-    
-    public int getMagic()
-    {
-        return this.magic;
-    }
         
     //setters
     public void setMaxPower(int maxPower)
@@ -141,11 +132,5 @@ public class Healer extends Character
     {
         this.intel += intel;
     }
-    
-    public void setMagic(int magic)
-    {
-        this.magic += magic;
-    }
-    
     //os outros métodos serão implementados posteriormente
 }
