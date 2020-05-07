@@ -10,7 +10,7 @@ public class Game
     //instâncias são private
     private 
     int playerOneScore, playerTwoScore, nBattles;
-    ArrayList <Character> playerOneDeck, playerTwoDeck;
+    ArrayList <Character> playerOneDeck, playerTwoDeck, playerOneParty, playerTwoParty;
         final 
         ArrayList <Character> allCharacters;
         Death death;
@@ -49,6 +49,8 @@ public class Game
         this.allCharacters = null;
         this.playerOneDeck = null;
         this.playerTwoDeck = null;
+        this.playerOneParty = null;
+        this.playerTwoParty = null;
     }
     
     //getters
@@ -79,12 +81,22 @@ public class Game
     
     public ArrayList <Character> getPlayerOneDeck()
     {
-        return this.playerDeck;
+        return this.playerOneDeck;
     }
     
     public ArrayList <Character> getPlayerTwoDeck()
     {
-        return this.botDeck;
+        return this.playerTwoDeck;
+    }
+    
+    public ArrayList <Character> getPlayerOneParty()
+    {
+        return this.playerOneParty;
+    }
+    
+    public ArrayList <Character> getPlayerTwoParty()
+    {
+        return this.playerTwoParty;
     }
     
     public ArrayList <Character> getAllCharacters()
