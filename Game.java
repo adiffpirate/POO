@@ -44,7 +44,7 @@ public class Game
         this.nBattles = 0;
         this.maxBattles = maxBattles;
         this.death = death;
-        //TO DO: ler um arquivo de texto para criar allCharacters e um método para gerar botDeck e playerDeck
+        //TO DO: ler um arquivo de texto para criar allCharacters e um método para gerar playerOneDeck e playerTwoDeck
         //só para não dar erro de compilação, vamos setar como null
         this.allCharacters = null;
         this.playerOneDeck = null;
@@ -107,12 +107,12 @@ public class Game
     //setters
     public void setPlayerOneScore(int playerOneScore)
     {
-        this.playerScore += playerScore;
+        this.playerOneScore += playerOneScore;
     }
     
     public void setPlayerTwoScore(int playerTwoScore)
     {
-        this.botScore += botScore;
+        this.playerTwoScore += playerTwoScore;
     }
     
     public void setNBattles()
