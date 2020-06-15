@@ -1,20 +1,29 @@
 //essa classe pertence ao pacote battlegame
-package battlegame;
+//package battlegame;
+import java.util.Random;
 
 //classe abstrata Character, implementa Cloneable
 public abstract class Character implements Cloneable
 {
     //instâncias são protected pois precisam ser acessadas pelas classes herdeiras
-    protected int maxPower, maxHp, power, hp, level, xp, atk, def, speed, intel;
-        //instância que não será modificada
-        final String name;
+    protected int maxPower, maxHp, power, hp, level, xp, atk, def;
+    //instância que não será modificada
+    final String name;
         
     //métodos
     //construtor
-    //apenas setará o nome, pois o construtor de cada classe de personagem fará o resto
-    public Character(String name)
+    public Character(String name, int atk, int def)
     {
+        //todos os personagens vão começar com nível 1, 0 de XP e 20 de poder
+        this.xp = 0;
+        this.level = 1;
+        this.power = 20;
+        this.maxPower = 20;
+        //cada personagem começará com nomes e valores diferentes para esses atributos
         this.name = name;
+        this.atk = atk;
+        this.def = def;
+        //apenas o valor inicial de saúde será de acordo com a classe
     }
     
     //construtor de clone
@@ -72,17 +81,7 @@ public abstract class Character implements Cloneable
     {
         return this.def;
     }
-    
-    public int getSpeed()
-    {
-        return this.speed;
-    }
-    
-    public int getIntel()
-    {
-        return this.intel;
-    }
-    
+
     public String getName()
     {
         return this.name;
@@ -102,13 +101,14 @@ public abstract class Character implements Cloneable
     
     public void setPower(int power)
     {
-        if(this.power + power > this.maxPower) this.power = this.maxPower;
-        else this.power += power;
+        if(this.power - power < 0) this.power = 0;
+        else this.power -= power;
     }
     
     public void setHp(int hp)
     {
         if(this.hp + hp > this.maxHp) this.hp = this.maxHp;
+        else if(this.hp + hp < 0) this.hp = 0;
         else this.hp += hp;
     }
     
@@ -127,17 +127,26 @@ public abstract class Character implements Cloneable
     {
         this.def += def;
     }
-    
-    public void setSpeed(int speed)
-    {
-        this.speed += speed;
-    }
-    
-    public void setIntel(int intel)
-    {
-        this.intel += intel;
-    }
+
     //método abstract
     public abstract void levelUp();
+    
+    public abstract void showActions(int power);
+    
+    public void individualAttack(Character target)
+    {
+        Random rand = new Random();
+        double random = rand.nextDouble();
+        int damage = (int)(this.getAttack() * random);
+        target.setHp(damage);
+        this.setXp(damage);
+    }
+    
+    public void groupAttack()
+    {
+        Random rand = new Random();
+        int random = rand.nextInt(70);
+        int damage = this.getAttack() * random/100;
+    }
     //os outros métodos serão implementados posteriormente
 }
