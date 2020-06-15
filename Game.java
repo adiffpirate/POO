@@ -261,8 +261,26 @@ public class Game
         {
             if(turn%2==0)
             {
-                System.out.println("Vez do jogador 1");
-                
+                System.out.println("Vez do jogador 1 com " + getPlayerOneParty.get(turn/2).getName());
+                System.out.println("HP dos oponentes: ");
+                for(int i=0; i<getPlayerTwoParty.size();i+=1)
+                System.out.println("(" + i + ") " + getPlayerTwoDeck.get(i).getName() + ": " + getPlayerTwoDeck.get(i).getHp)
+                System.out.println("Digite o index da ação desejada");
+                getPlayerOneParty.get(i).showActions();
+                Scanner as = new Scanner(System.in);
+                int action = as.nextInt();
+                int opIndex;
+                if(action%2==0)
+                {
+                    System.out.println("Digite o index do alvo");
+                    opIndex = as.nextInt();
+                    
+                }
+                turn +=1;
+            }
+            else
+            {
+                System.out.println("Vez do jogador 2");
             }
         }
     }
