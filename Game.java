@@ -3,8 +3,8 @@ package battlegame;
 
 //uso de ArrayList
 import java.util.ArrayList;
-//uso da leitura do arquivo
-import java.util.Scanner;
+//uso da leitura do arquivo e embaralhamento das cartas
+import java.util.*;
 import java.io.*;
 
 //classe Game
@@ -40,14 +40,11 @@ public class Game
     }
     
     //construtor
-    public Game(int maxBattles, Death death)
+    public Game()
     {
         this.playerOneScore = 0;
         this.playerTwoScore = 0;
         this.nBattles = 0;
-        this.maxBattles = maxBattles;
-        this.death = death;
-        //TO DO: ler um arquivo de texto para criar allCharacters e um método para gerar playerOneDeck e playerTwoDeck
         //cria-se um ArrayList auxiliar
         ArrayList<Character> aux = new ArrayList<Character>();
         //é preciso considerar a exceção de o arquivo não ser encontrado, então tenta se executar o código e 
@@ -94,12 +91,27 @@ public class Game
         {
             System.out.println("Error");
         }
+        //atribui-se allCharacters a aux
         this.allCharacters = aux;
-        //só para não dar erro de compilação, vamos setar como null
-        this.playerOneDeck = null;
-        this.playerTwoDeck = null;
+        //embaralha-se allCharacters
+        Collections.shuffle(allCharacters);
+        //distribui-se as cartas
+        for(int i=0; i<4; i+=1) this.playerOneDeck.add(this.allCharacters.get(i));
+        for(int i=4; i<7; i+=1) this.playerTwoDeck.add(this.allCharacters.get(i));
+        //como as batalhas ainda não começaram, os times estão vazios
         this.playerOneParty = null;
         this.playerTwoParty = null;
+        //pergunta-se o número máximo de batalhas
+        System.out.println("Qual será o número máxima de batalhas?");
+        Scanner input = new Scanner(System.in);
+        this.maxBattles = input.nextInt();
+        //pergunta-se se os personagens vão morrer ou ser transferidos
+        System.out.println("Quando um personagem for derrotado, você quer que ele morra ou seja transferido para o oponente?");
+        System.out.println("(0) Seja transferido para o oponente");
+        System.out.println("(1) Morra");
+        int auxDeath = input.nextInt();
+        if(auxDeath==0)this.death=death.No;
+        else this.death=death.Yes;
     }
     //getters
     public int getPlayerOneScore()
@@ -167,5 +179,91 @@ public class Game
     {
         this.nBattles += 1;
     }
-    //outros métodos serão implementados posteriormente
+    public void battle()
+    {
+        if(this.nBattles % 2 == 0)
+        {
+            System.out.println("Jogador 1, monte seu time digitando o index e dando enter a cada personagem");
+            System.out.println("Use quantos personagens quiser e termine digitando 8");
+            System.out.println("Esses são seus personagens disponíveis:");
+            for(int i=0; i < getPlayerOneDeck.size(); i+=1) 
+            {
+                System.out.println("(" + i + ") " + getPlayerOneDeck.get(i).getName() + " - Nível " + getPlayerOneDeck.get(i).getLevel() + ":");
+                System.out.println("HP: " + getPlayerOneDeck.get(i).getHp + "/" + getPlayerOneDeck.get(i).getMaxHp + ", Ataque " +
+                getPlayerOneDeck.get(i).getAtk() + ", Defesa " + getPlayerOneDeck.get(i).getDef() + ", Velocidade " + 
+                getPlayerOneDeck.get(i).getSpeed() + ", Inteligência " + getPlayerOneDeck.get(i).getIntel() + ", Poder "
+                + getPlayerOneDeck.get(i).getPower);
+            }
+            Scanner deck = new Scanner(System.in);
+            while(deck != 8)
+            {
+                int index = deck.nextInt();
+                if(index!=8)getPlayerOneParty.add(getPlayerOneDeck.get(index));
+            }
+            System.out.println("Jogador 2, monte um time com " + getPlayerOneParty.size() + "personagens");
+            System.out.println("Esses são seus personagens disponíveis:");
+            for(int i=0; i < getPlayerTwoDeck.size(); i+=1) 
+            {
+                System.out.println("(" + i + ") " + getPlayerTwoDeck.get(i).getName() + " - Nível " + getPlayerTwoDeck.get(i).getLevel() + ":");
+                System.out.println("HP: " + getPlayerOneDeck.get(i).getHp + "/" + getPlayerOneDeck.get(i).getMaxHp + ", Ataque " +
+                getPlayerTwoDeck.get(i).getAtk() + ", Defesa " + getPlayerTwoDeck.get(i).getDef() + ", Velocidade " + 
+                getPlayerTwoDeck.get(i).getSpeed() + ", Inteligência " + getPlayerTwoDeck.get(i).getIntel() + ", Poder "
+                + getPlayerTwoDeck.get(i).getPower);
+            }
+            deck = -1;
+            for(int i = 0; i < getPlayerOneParty.size(); i+=1)
+            {
+                int index = deck.nextInt();
+                getPlayerTwoParty.add(getPlayerTwoDeck.get(index));
+            }
+        }
+        else
+        {
+            System.out.println("Jogador 2, monte seu time digitando o index e dando enter a cada personagem");
+            System.out.println("Use quantos personagens quiser e termine digitando 8");
+            System.out.println("Esses são seus personagens disponíveis:");
+            for(int i=0; i < getPlayerTwoDeck.size(); i+=1) 
+            {
+                System.out.println("(" + i + ") " + getPlayerTwoDeck.get(i).getName() + " - Nível " + getPlayerTwoDeck.get(i).getLevel() + ":");
+                System.out.println("HP: " + getPlayerTwoDeck.get(i).getHp + "/" + getPlayerTwoDeck.get(i).getMaxHp + ", Ataque " +
+                getPlayerTwoDeck.get(i).getAtk() + ", Defesa " + getPlayerTwoDeck.get(i).getDef() + ", Velocidade " + 
+                getPlayerTwoDeck.get(i).getSpeed() + ", Inteligência " + getPlayerTwoDeck.get(i).getIntel() + ", Poder "
+                + getPlayerTwoDeck.get(i).getPower);
+            }
+            Scanner deck = new Scanner(System.in);
+            while(deck != 8)
+            {
+                int index = deck.nextInt();
+                if(index!=8)getPlayerTwoParty.add(getPlayerTwoDeck.get(index));
+            }
+            System.out.println("Jogador 1, monte um time com " + getPlayerTwoParty.size() + "personagens");
+            System.out.println("Esses são seus personagens disponíveis:");
+            for(int i=0; i < getPlayerOneDeck.size(); i+=1) 
+            {
+                System.out.println("(" + i + ") " + getPlayerOneDeck.get(i).getName() + " - Nível " + getPlayerOneDeck.get(i).getLevel() + ":");
+                System.out.println("HP: " + getPlayerOneDeck.get(i).getHp + "/" + getPlayerOneDeck.get(i).getMaxHp + ", Ataque " +
+                getPlayerOneDeck.get(i).getAtk() + ", Defesa " + getPlayerOneDeck.get(i).getDef() + ", Velocidade " + 
+                getPlayerOneDeck.get(i).getSpeed() + ", Inteligência " + getPlayerOneDeck.get(i).getIntel() + ", Poder "
+                + getPlayerOneDeck.get(i).getPower);
+            }
+            deck = -1;
+            for(int i = 0; i < getPlayerTwoParty.size(); i+=1)
+            {
+                int index = deck.nextInt();
+                getPlayerOneParty.add(getPlayerOneDeck.get(index));
+            }
+        }
+        System.out.println("A batalha começa!");
+        int turn;
+        if(getNBattles % 2 == 0)turn = 0;
+        else turn = 1;
+        while(getPlayerOneParty.size()!=0 && getPlayerTwoParty.size!=0)
+        {
+            if(turn%2==0)
+            {
+                System.out.println("Vez do jogador 1");
+                
+            }
+        }
+    }
 }
