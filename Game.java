@@ -1,5 +1,5 @@
 //essa classe pertence ao pacote battlegame
-package battlegame;
+//package battlegame;
 
 //uso de ArrayList
 import java.util.ArrayList;
@@ -68,22 +68,11 @@ public class Game
                 //como o próximo dado está na próxima linha e o método nextInt() não considera quebra de linha, 
                 //o fazemos chamando o método nextLine() sem atribuí-lo a variável alguma
                 sc.nextLine();
-                //lê-se um inteiro que será o valor inicial de velocidade
-                int speed = sc.nextInt();
-                //como o próximo dado está na próxima linha e o método nextInt() não considera quebra de linha, 
-                //o fazemos chamando o método nextLine() sem atribuí-lo a variável alguma
-                sc.nextLine();
-                //lê-se um inteiro que será o valor inicial de inteligência
-                int intel = sc.nextInt();
-                //como o próximo dado está na próxima linha e o método nextInt() não considera quebra de linha, 
-                //o fazemos chamando o método nextLine() sem atribuí-lo a variável alguma
-                sc.nextLine();
                 //lê-se um inteiro que indicará qual a classe do personagem
                 int classID = sc.nextInt();
-                if(classID == 1) aux.add(new Warrior(name, atk, def, speed, intel));
-                else if(classID == 2) aux.add(new Wizard(name, atk, def, speed, intel));
-                else if(classID == 3) aux.add(new Archer(name, atk, def, speed, intel));
-                else aux.add(new Healer(name, atk, def, speed, intel));
+                if(classID == 1) aux.add(new Warrior(name, atk, def));
+                else if(classID == 2) aux.add(new Wizard(name, atk, def));
+                else aux.add(new Archer(name, atk, def));
             }
         }
         //caso o arquivo não seja encontrado, imprime-se "erro" e retorna-se um ArrayList nulo
@@ -96,8 +85,8 @@ public class Game
         //embaralha-se allCharacters
         Collections.shuffle(allCharacters);
         //distribui-se as cartas
-        for(int i=0; i<4; i+=1) this.playerOneDeck.add(this.allCharacters.get(i));
-        for(int i=4; i<7; i+=1) this.playerTwoDeck.add(this.allCharacters.get(i));
+        for(int i=0; i<3; i+=1) this.playerOneDeck.add(this.allCharacters.get(i));
+        for(int i=3; i<6; i+=1) this.playerTwoDeck.add(this.allCharacters.get(i));
         //como as batalhas ainda não começaram, os times estão vazios
         this.playerOneParty = null;
         this.playerTwoParty = null;
@@ -184,104 +173,104 @@ public class Game
         if(this.nBattles % 2 == 0)
         {
             System.out.println("Jogador 1, monte seu time digitando o index e dando enter a cada personagem");
-            System.out.println("Use quantos personagens quiser e termine digitando 8");
+            System.out.println("Use quantos personagens quiser e termine digitando 6");
             System.out.println("Esses são seus personagens disponíveis:");
-            for(int i=0; i < getPlayerOneDeck.size(); i+=1) 
+            for(int i=0; i < getPlayerOneDeck().size(); i+=1) 
             {
-                System.out.println("(" + i + ") " + getPlayerOneDeck.get(i).getName() + " - Nível " + getPlayerOneDeck.get(i).getLevel() + ":");
-                System.out.println("HP: " + getPlayerOneDeck.get(i).getHp + "/" + getPlayerOneDeck.get(i).getMaxHp + ", Ataque " +
-                getPlayerOneDeck.get(i).getAtk() + ", Defesa " + getPlayerOneDeck.get(i).getDef() + ", Velocidade " + 
-                getPlayerOneDeck.get(i).getSpeed() + ", Inteligência " + getPlayerOneDeck.get(i).getIntel() + ", Poder "
-                + getPlayerOneDeck.get(i).getPower);
+                System.out.println("(" + i + ") " + getPlayerOneDeck().get(i).getName() + " - Nível " + getPlayerOneDeck().get(i).getLevel() + ":");
+                System.out.println("HP: " + getPlayerOneDeck().get(i).getHp() + "/" + getPlayerOneDeck().get(i).getMaxHp() + ", Ataque " +
+                getPlayerOneDeck().get(i).getAttack() + ", Defesa " + getPlayerOneDeck().get(i).getDefense() + ", Poder " + getPlayerOneDeck().get(i).getPower());
             }
             Scanner deck = new Scanner(System.in);
-            while(deck != 8)
+            int index = 0;
+            while(index != 6)
             {
-                int index = deck.nextInt();
-                if(index!=8)getPlayerOneParty.add(getPlayerOneDeck.get(index));
+                index = deck.nextInt();
+                if(index!=6)getPlayerOneParty().add(getPlayerOneDeck().get(index));
             }
-            System.out.println("Jogador 2, monte um time com " + getPlayerOneParty.size() + "personagens");
+            System.out.println("Jogador 2, monte um time com " + getPlayerOneParty().size() + "personagens");
             System.out.println("Esses são seus personagens disponíveis:");
-            for(int i=0; i < getPlayerTwoDeck.size(); i+=1) 
+            for(int i=0; i < getPlayerTwoDeck().size(); i+=1) 
             {
-                System.out.println("(" + i + ") " + getPlayerTwoDeck.get(i).getName() + " - Nível " + getPlayerTwoDeck.get(i).getLevel() + ":");
-                System.out.println("HP: " + getPlayerOneDeck.get(i).getHp + "/" + getPlayerOneDeck.get(i).getMaxHp + ", Ataque " +
-                getPlayerTwoDeck.get(i).getAtk() + ", Defesa " + getPlayerTwoDeck.get(i).getDef() + ", Velocidade " + 
-                getPlayerTwoDeck.get(i).getSpeed() + ", Inteligência " + getPlayerTwoDeck.get(i).getIntel() + ", Poder "
-                + getPlayerTwoDeck.get(i).getPower);
+                System.out.println("(" + i + ") " + getPlayerTwoDeck().get(i).getName() + " - Nível " + getPlayerTwoDeck().get(i).getLevel() + ":");
+                System.out.println("HP: " + getPlayerOneDeck().get(i).getHp() + "/" + getPlayerOneDeck().get(i).getMaxHp() + ", Ataque " +
+                getPlayerTwoDeck().get(i).getAttack() + ", Defesa " + getPlayerTwoDeck().get(i).getDefense() + ", Poder " + getPlayerTwoDeck().get(i).getPower());
             }
-            deck = -1;
-            for(int i = 0; i < getPlayerOneParty.size(); i+=1)
+            for(int i = 0; i < getPlayerOneParty().size(); i+=1)
             {
-                int index = deck.nextInt();
-                getPlayerTwoParty.add(getPlayerTwoDeck.get(index));
+                index = deck.nextInt();
+                getPlayerTwoParty().add(getPlayerTwoDeck().get(index));
             }
         }
         else
         {
             System.out.println("Jogador 2, monte seu time digitando o index e dando enter a cada personagem");
-            System.out.println("Use quantos personagens quiser e termine digitando 8");
+            System.out.println("Use quantos personagens quiser e termine digitando 6");
             System.out.println("Esses são seus personagens disponíveis:");
-            for(int i=0; i < getPlayerTwoDeck.size(); i+=1) 
+            for(int i=0; i < getPlayerTwoDeck().size(); i+=1) 
             {
-                System.out.println("(" + i + ") " + getPlayerTwoDeck.get(i).getName() + " - Nível " + getPlayerTwoDeck.get(i).getLevel() + ":");
-                System.out.println("HP: " + getPlayerTwoDeck.get(i).getHp + "/" + getPlayerTwoDeck.get(i).getMaxHp + ", Ataque " +
-                getPlayerTwoDeck.get(i).getAtk() + ", Defesa " + getPlayerTwoDeck.get(i).getDef() + ", Velocidade " + 
-                getPlayerTwoDeck.get(i).getSpeed() + ", Inteligência " + getPlayerTwoDeck.get(i).getIntel() + ", Poder "
-                + getPlayerTwoDeck.get(i).getPower);
+                System.out.println("(" + i + ") " + getPlayerTwoDeck().get(i).getName() + " - Nível " + getPlayerTwoDeck().get(i).getLevel() + ":");
+                System.out.println("HP: " + getPlayerTwoDeck().get(i).getHp() + "/" + getPlayerTwoDeck().get(i).getMaxHp() + ", Ataque " +
+                getPlayerTwoDeck().get(i).getAttack() + ", Defesa " + getPlayerTwoDeck().get(i).getDefense() + ", Poder " + getPlayerTwoDeck().get(i).getPower());
             }
             Scanner deck = new Scanner(System.in);
-            while(deck != 8)
+            int index=0;
+            while(index != 6)
             {
-                int index = deck.nextInt();
-                if(index!=8)getPlayerTwoParty.add(getPlayerTwoDeck.get(index));
+                index = deck.nextInt();
+                if(index!=6)getPlayerTwoParty().add(getPlayerTwoDeck().get(index));
             }
-            System.out.println("Jogador 1, monte um time com " + getPlayerTwoParty.size() + "personagens");
+            System.out.println("Jogador 1, monte um time com " + getPlayerTwoParty().size() + "personagens");
             System.out.println("Esses são seus personagens disponíveis:");
-            for(int i=0; i < getPlayerOneDeck.size(); i+=1) 
+            for(int i=0; i < getPlayerOneDeck().size(); i+=1) 
             {
-                System.out.println("(" + i + ") " + getPlayerOneDeck.get(i).getName() + " - Nível " + getPlayerOneDeck.get(i).getLevel() + ":");
-                System.out.println("HP: " + getPlayerOneDeck.get(i).getHp + "/" + getPlayerOneDeck.get(i).getMaxHp + ", Ataque " +
-                getPlayerOneDeck.get(i).getAtk() + ", Defesa " + getPlayerOneDeck.get(i).getDef() + ", Velocidade " + 
-                getPlayerOneDeck.get(i).getSpeed() + ", Inteligência " + getPlayerOneDeck.get(i).getIntel() + ", Poder "
-                + getPlayerOneDeck.get(i).getPower);
+                System.out.println("(" + i + ") " + getPlayerOneDeck().get(i).getName() + " - Nível " + getPlayerOneDeck().get(i).getLevel() + ":");
+                System.out.println("HP: " + getPlayerOneDeck().get(i).getHp() + "/" + getPlayerOneDeck().get(i).getMaxHp() + ", Ataque " +
+                getPlayerOneDeck().get(i).getAttack() + ", Defesa " + getPlayerOneDeck().get(i).getDefense() + ", Poder " + getPlayerOneDeck().get(i).getPower());
             }
-            deck = -1;
-            for(int i = 0; i < getPlayerTwoParty.size(); i+=1)
+            for(int i = 0; i < getPlayerTwoParty().size(); i+=1)
             {
-                int index = deck.nextInt();
-                getPlayerOneParty.add(getPlayerOneDeck.get(index));
+                index = deck.nextInt();
+                getPlayerOneParty().add(getPlayerOneDeck().get(index));
             }
         }
         System.out.println("A batalha começa!");
         int turn;
-        if(getNBattles % 2 == 0)turn = 0;
+        if(getNBattles() % 2 == 0)turn = 0;
         else turn = 1;
-        while(getPlayerOneParty.size()!=0 && getPlayerTwoParty.size!=0)
+        while(getPlayerOneParty().size()!=0 && getPlayerTwoParty().size()!=0)
         {
             if(turn%2==0)
             {
-                System.out.println("Vez do jogador 1 com " + getPlayerOneParty.get(turn/2).getName());
-                System.out.println("HP dos oponentes: ");
-                for(int i=0; i<getPlayerTwoParty.size();i+=1)
-                System.out.println("(" + i + ") " + getPlayerTwoDeck.get(i).getName() + ": " + getPlayerTwoDeck.get(i).getHp)
-                System.out.println("Digite o index da ação desejada");
-                getPlayerOneParty.get(i).showActions();
-                Scanner as = new Scanner(System.in);
-                int action = as.nextInt();
-                int opIndex;
-                if(action%2==0)
+                if(getPlayerOneParty().get(turn/2).getPower() > 4)
                 {
-                    System.out.println("Digite o index do alvo");
-                    opIndex = as.nextInt();
-                    
+                    System.out.println("Vez do jogador 1 com " + getPlayerOneParty().get(turn/2).getName());
+                    System.out.println("HP dos oponentes: ");
+                    for(int i=0; i<getPlayerTwoParty().size();i+=1)
+                    System.out.println("(" + i + ") " + getPlayerTwoDeck().get(i).getName() + ": " + getPlayerTwoDeck().get(i).getHp());
+                    System.out.println("Digite o index da ação desejada");
+                    getPlayerOneParty().get(turn/2).showActions(getPlayerOneParty().get(turn/2).getPower());
+                    Scanner as = new Scanner(System.in);
+                    int action = as.nextInt();
+                    int opIndex;
+                    if(action==0)
+                    {
+                        getPlayerOneParty().get(turn/2).setPower(5);
+                        System.out.println("Digite o index do alvo");
+                        opIndex = as.nextInt();
+                        getPlayerOneParty().get(turn/2).individualAttack(getPlayerTwoParty().get(opIndex));
+                    }
+                    else 
+                    {
+                        getPlayerOneParty().get(turn/2).setPower(10);
+                        getPlayerOneParty().get(turn/2).groupAttack();
+                    }
                 }
-                turn +=1;
-            }
             else
             {
                 System.out.println("Vez do jogador 2");
             }
         }
     }
+}
 }
