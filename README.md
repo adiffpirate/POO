@@ -8,7 +8,7 @@ Um jogo simples, single-player, offline, e em turnos para te entreter um pouco n
 Antes de começar, saiba que o número de batalhas e a quantidade de personagens no deck são gerados aleatoriamente, só para deixar as coisas menos repetitivas :wink:
 
 **1.** Veja quantos personagens lutarão por ti nesse combate e escolha quantos terão em cada [classe](https://github.com/marcelats/POO#classes).
-> Em um combate de 10 personagens, você pode ter 4 guerreiros + 2 arqueiros + 2 bruxos + 2 curandeiros, ou 5 guerreiros + 5 curandeiros, ou até mesmo 10 bruxos! Mas tenha sempre em mente as forças e fraquezas de cada um.
+> Em um combate de 10 personagens, você pode ter 4 guerreires + 2 arqueires + 2 bruxes + 2 sacerdotes, ou 5 guerreires + 5 sacerdotes, ou até mesmo 10 bruxes! Mas tenha sempre em mente as forças e fraquezas de cada um.
 
 **2.** Escolha um personagem para colocar em batalha, seu oponente escolherá um também.
 
@@ -23,28 +23,28 @@ Bem fácil, né? :smile:
 
 Existem 4 classes no jogo:
 
-#### Guerreiros 
-Equilibrados em ataque e defesa, guerreiros são sua confiável linha de frente em qualquer momento.
-HP|Atck|Def|Agi|Con
-:-:|:--:|:-:|:-:|:-:
+#### Guerreires 
+Equilibrados em ataque e defesa, são sua confiável linha de frente em qualquer momento.
+HP|Atk|Def|Agi|Con
+:-:|:-:|:-:|:-:|:-:
 100|75|25|50|10
 
-#### Arqueiros 
+#### Arqueires 
 Atacam rápido e dão um dano considerável, porém são mais frágeis que seus companheiros de espada e escudo.
-HP|Atck|Def|Agi|Con
-:-:|:--:|:-:|:-:|:-:
+HP|Atk|Def|Agi|Con
+:-:|:-:|:-:|:-:|:-:
 75|100|25|75|5
 
-#### Bruxos 
+#### Bruxes 
 A classe que mais demora atacar no jogo, mas quando conseguem conjurar sua magia é melhor sair da frente. Causam um dano absurdo, mas também morrem bem fácil.
-HP|Atck|Def|Agi|Con
-:-:|:--:|:-:|:-:|:-:
+HP|Atk|Def|Agi|Con
+:-:|:-:|:-:|:-:|:-:
 75|125|0|25|5
 
 #### Sacerdotes 
 Seu suporte nas horas difíceis, conseguem curar os aliados (e a si mesmos) mas não podem atacar.
-HP|Fé|Def|Agi|Con
-:-:|:--:|:-:|:-:|:-:
+HP|Fe|Def|Agi|Con
+:-:|:-:|:-:|:-:|:-:
 100|50|0|80|5
 
 
@@ -55,29 +55,29 @@ Cada personagem tem uma série de atributos que são usados em diversas funçõe
 #### Saúde (HP)
 Representa a vida do personagem, que é morto caso esse valor chegue a zero. É recuperada a cada batalha fora de combate (por um valor igual a quantidade de _constituição_ do personagem) e também via magias de cura, mas nunca podendo exceder seu valor máximo.
 
-#### Ataque (Atck)
-Usado por _Guerreiros_, _Arqueiros_ e _Bruxos_ para calcular o dano causado.
+#### Ataque (Atk)
+Usado por _Guerreires_, _Arqueires_ e _Bruxes_ para calcular o dano causado.
 > Dano = Ataque do personagem - Defesa do oponente
 
-#### Fé (Fé)
+#### Fé (Fe)
 Usado por _Sacerdotes_ para calcular a cura realizada.
 
 #### Defesa (Def)
 Usado para diminuir o dano causado por ataques inimigos.
 
 #### Constituição (Con)
-Determina a quantidade de pontos de saúde recuperados a cada batalha que o personagem passa fora de combate
+Determina a quantidade de pontos de saúde recuperados a cada batalha que o personagem passa fora de combate.
 > Ex.: Se um personagem tem 10 de _constituição_, ele recuperará 10 pontos de _saúde_.
 
 #### Agilidade (Agi)
 Determina quem começará a batalha atacando. Os personagens que empatarem realizarão suas ações ao mesmo tempo.
-> Ex.: Se dois _Arqueiros_ de mesmo nível forem para a batalha os dois morrerão.
+> Ex.: Se dois _Arqueires_ de mesmo level forem para a batalha os dois morrerão.
 
 #### Experiência (XP)
-Se um personagem derrota outro, os pontos de _experiência_ do derrotado são acresentados aos pontos do vitorioso. Quando esse valor é maximizado (ou ultrapassado), há um aumento de _nível_.
+Se um personagem derrota outro, os pontos de _experiência_ do derrotado são acrescentados aos pontos do vitorioso. Quando esse valor é maximizado (ou ultrapassado), há um aumento de _level_.
 
-#### Nível (Nv)
-Diz respeito à força de um personagem, quanto maior esse valor, mais forte e mais difícil de ser derrotado é o personagem. Quando alguém sobe de nível, a quantidade máxima de seus atributos é aumentada, de acordo a seguinte tabela:
+#### Level (Lv)
+Diz respeito à força de um personagem, quanto maior esse valor, mais forte e mais difícil de ser derrotado é o personagem. Quando alguém sobe de level, a quantidade máxima de seus atributos é aumentada, de acordo a seguinte tabela:
 
 Atributo | Aumento
 :------: | :-----:
