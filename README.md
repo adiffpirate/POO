@@ -45,7 +45,7 @@ HP|Atk|Def|Agi|Con
 Seu suporte nas horas difíceis, conseguem curar os aliados (e a si mesmos) mas não podem atacar.
 HP|Fe|Def|Agi|Con
 :-:|:-:|:-:|:-:|:-:
-100|50|0|80|5
+100|50|25|80|5
 
 
 ## Atributos
