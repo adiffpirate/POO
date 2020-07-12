@@ -39,7 +39,7 @@ HP|Atk|Def|Agi|Con
 A classe que mais demora atacar no jogo, mas quando conseguem conjurar sua magia é melhor sair da frente. Causam um dano absurdo, mas também morrem bem fácil.
 HP|Atk|Def|Agi|Con
 :-:|:-:|:-:|:-:|:-:
-75|125|0|25|5
+75|125|10|25|5
 
 #### Sacerdotes 
 Seu suporte nas horas difíceis, conseguem curar os aliados (e a si mesmos) mas não podem atacar.
