@@ -74,7 +74,16 @@ Determina quem começará a batalha atacando. Os personagens que empatarem reali
 > Ex.: Se dois _Arqueires_ de mesmo level forem para a batalha os dois morrerão.
 
 #### Experiência (XP)
-Se um personagem derrota outro, os pontos de _experiência_ do derrotado são acrescentados aos pontos do vitorioso. Quando esse valor é maximizado (ou ultrapassado), há um aumento de _level_.
+Todos os personagens começam com 100 de XP. Se um personagem derrota outro, os pontos de _experiência_ do derrotado são acrescentados aos pontos do vitorioso. Quando esse valor é atinge a quantidade necessária (de acordo a tabela abaixo), há um aumento de _level_. 
+
+Level | Quantidade de XP necessária
+:---: | :-------------------------:
+2 | 200
+3 | 400
+4 | 800
+5 | 1600
+...|...
+> Ou seja, a quantidade de XP necessária dobra a cada aumento de level, e não há limite de leveis.
 
 #### Level (Lv)
 Diz respeito à força de um personagem, quanto maior esse valor, mais forte e mais difícil de ser derrotado é o personagem. Quando alguém sobe de level, a quantidade máxima de seus atributos é aumentada, de acordo a seguinte tabela:
@@ -82,7 +91,6 @@ Diz respeito à força de um personagem, quanto maior esse valor, mais forte e m
 Atributo | Aumento
 :------: | :-----:
 Saúde | x1.5
-Experiência | x2
 Ataque / Fé | x1.5
 Defesa | x1.5
 Constituição | x2
