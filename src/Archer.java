@@ -1,6 +1,6 @@
 public class Archer extends Character {
-    public Archer(String name) {
-        super(name, "Arqueire");
+    public Archer(String name, String owner) {
+        super(name, "Arqueire", owner);
         this.maxHp = 75;
         this.hp = 75;
         this.atk = 100;

@@ -1,6 +1,6 @@
 public class Wizard extends Character {
-    public Wizard(String name) {
-        super(name, "Bruxe");
+    public Wizard(String name, String owner) {
+        super(name, "Bruxe", owner);
         this.maxHp = 75;
         this.hp = 75;
         this.atk = 125;

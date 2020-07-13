@@ -1,18 +1,21 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Character implements Cloneable {
     // Atributos sao protected pois precisam ser acessados pelas classes filhas
-    protected int maxHp, hp, level, xp, atk, def, agi, con;
+    protected int maxHp, hp, level, maxXp, xp, atk, def, agi, con;
     // Instância que não será modificada
-    private final String name, charClass;
-    // Util
-    private final Util util = new Util();
+    private final String name, charClass, owner;
+    protected final Util util = new Util();
+    private boolean inBattle;
 
     // Construtor (recebe o nome do personagem e o nome da classe que ira aparecer na "interface" do jogo)
-    public Character(String name, String charClass) {
+    public Character(String name, String charClass, String owner) {
         this.name = name;
         this.charClass = charClass;
+        this.owner = owner;
         // Valores iniciais que sao fixos para todos os personagens
+        this.maxXp = 200;
         this.xp = 100;
         this.level = 1;
     }
@@ -28,6 +31,7 @@ public abstract class Character implements Cloneable {
     public int getCon() { return this.con; }
     public String getName() { return this.name; }
     public String getCharClass() { return this.charClass; }
+    public String getOwner() { return owner; }
 
     // Setters
     public void setMaxHp(int maxHp) { this.maxHp = maxHp; }
@@ -45,15 +49,26 @@ public abstract class Character implements Cloneable {
     public boolean isDead(){
         return this.hp <= 0;
     }
-    public void action(Character target){
+    public boolean isInBattle(){
+        return inBattle;
+    }
+    public void putInBattle(){
+        this.inBattle = true;
+    }
+    public void putOutOffBattle(){
+        this.inBattle = false;
+    }
+    public void action(Character target, ArrayList<Character> hisDeck){
+        System.out.println("("+this.owner+") "+this.name+" faz sua ação");
+        util.sleep(2); // Pequena pausa para leitura do usuario
+        // Se o personagem em batalha for um sacerdote
         if (this instanceof Priest){
-            // Por enquanto o sacerdote cura a si mesmo, isso sera mudado futuramente
-            // para permitir o usuario escolher
-            ((Priest) this).heal(this);
+            ((Priest) this).heal(hisDeck);
         }
         else{
             this.attack(target);
         }
+        util.sleep(2); // Pequena pausa para leitura do usuario
     }
     public void attack(Character target) {
         // Calcula o dano
@@ -71,22 +86,22 @@ public abstract class Character implements Cloneable {
         }
     }
     public void takeDamage(int damage){
-        util.sleep(2); // Pequena pausa para leitura do usuario
         this.hp -= damage;
         if (this.isAlive()){
-            System.out.println(this.name+" sofreu "+damage+" de dano, ficando com "+this.hp+" de HP");
+            System.out.println(this.name+" sofreu "+damage+" de dano");
         }else{
             System.out.println(this.name+" morreu");
         }
     }
     public void printCharInformation(){
-        System.out.println(this.name+" ("+this.charClass+") Lv: "+this.level+"    XP: "+this.xp);
+        System.out.println(this.name+" ("+this.charClass+") Lv: "+this.level+"    XP: "+this.xp+"/"+this.maxXp);
         System.out.println("HP: "+this.hp+"/"+this.maxHp+"    Atk: " +this.atk+"    Def: "+this.def+"    Agi: "+this.agi+"    Con: "+this.con);
     }
     public void levelUp(){
         this.level++;
         this.maxHp *= 1.5;
-        this.hp = this.maxHp;
+        this.hp = (int) (this.maxHp * 0.6);
+        this.maxXp *= 2;
         this.atk *= 1.5;
         this.def *= 1.5;
         this.con *= 2;
@@ -98,11 +113,7 @@ public abstract class Character implements Cloneable {
     }
     public void stealXP(Character target){
         this.xp += target.xp;
-        /*  Sobe o personagem de level, de acordo a formula
-            100 * (2 ^ (level atual do personagem - 1)), ou seja:
-            level 2 = 200 de xp necessarios;
-            level 3 = 400 de xp necessarios;
-            level 4 = 800 de xp necessarios;... */
-        if (this.xp >= Math.pow(2,this.level-1)*100) this.levelUp();
+        //  Sobe o personagem de level quando o valor de xp atinge seu valor máximo
+        if (this.xp >= this.maxXp) this.levelUp();
     }
 }
