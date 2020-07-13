@@ -12,7 +12,7 @@ Antes de começar, saiba que o número de batalhas e a quantidade de personagens
 
 **2.** Escolha um personagem para colocar em batalha, seu oponente escolherá um também.
 
-**3.** Caso seu personagem tenha mais _agilidade_ escolha qual ação ele realizará, senão, espere seu oponente fazer uma ação e depois pode agir. Em caso de empate, as ações acontecem simultaneamente.
+**3.** Caso seu personagem tenha mais _agilidade_ escolha qual ação ele realizará, senão, espere seu oponente fazer uma ação e depois pode agir. Em caso de empate, o primeiro atacante é decidido aleatoriamente.
 > Se um personagem for morto, mesmo que tenha feito ação ou não, a batalha se encerra e quem foi derrotado entrega seus pontos de experiência para o adversário.
 
 **4.** Repita o passo 2 e 3 até que o número de batalhas acabe ou todos os personagens de um jogador morram.
@@ -70,8 +70,7 @@ Determina a quantidade de pontos de saúde recuperados a cada batalha que o pers
 > Ex.: Se um personagem tem 10 de _constituição_, ele recuperará 10 pontos de _saúde_.
 
 #### Agilidade (Agi)
-Determina quem começará a batalha atacando. Os personagens que empatarem realizarão suas ações ao mesmo tempo.
-> Ex.: Se dois _Arqueires_ de mesmo level forem para a batalha os dois morrerão.
+Determina quem começará a batalha atacando.
 
 #### Experiência (XP)
 Todos os personagens começam com 100 de XP. Se um personagem derrota outro, os pontos de _experiência_ do derrotado são acrescentados aos pontos do vitorioso. Quando esse valor é atinge a quantidade necessária (de acordo a tabela abaixo), há um aumento de _level_. 
@@ -86,16 +85,18 @@ Level | Quantidade de XP necessária
 > Ou seja, a quantidade de XP necessária dobra a cada aumento de level, e não há limite de leveis.
 
 #### Level (Lv)
-Diz respeito à força de um personagem, quanto maior esse valor, mais forte e mais difícil de ser derrotado é o personagem. Quando alguém sobe de level, a quantidade máxima de seus atributos é aumentada, de acordo a seguinte tabela:
+Diz respeito à força de um personagem, quanto maior esse valor, mais forte e mais difícil de ser derrotado é o personagem. Quando alguém sobe de level, o valor seus atributos é aumentado, de acordo a seguinte tabela:
 
 Atributo | Aumento
 :------: | :-----:
-Saúde | x1.5
+XP Máxima | x2
+Saúde Máxima | x1.5
 Ataque / Fé | x1.5
 Defesa | x1.5
 Constituição | x2
 Agilidade | x1.5
 
+> Obs.: Ao subir de nível o HP do personagem será restaurado em até 60% de seu HP máximo
 
 ## Ações
 
