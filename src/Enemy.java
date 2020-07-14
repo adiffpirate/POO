@@ -2,10 +2,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
-public class Enemy {
-    private int warriorsQnt = 0, archersQnt = 0, wizardsQnt = 0, priestsQnt = 0;
-    private final ArrayList<Character> deck;
-    private Character charInBattle;
+public class Enemy extends Player{
     private final Random randomNumberGen = new Random();
 
     // Construtor
@@ -54,9 +51,6 @@ public class Enemy {
         }
     }
 
-    public Character getCharInBattle() { return charInBattle; }
-    public ArrayList<Character> getDeck() { return deck; }
-
     public void printInfo(){
         System.out.println("***** Personagens do inimigo *****");
         System.out.println();
@@ -68,28 +62,10 @@ public class Enemy {
         System.out.println("**********************************");
         System.out.println();
     }
+    @Override
     public void chooseCharToPutInBattle(){
         // Escolhe um personagem aleatorio no deck
         this.charInBattle = this.deck.get(randomNumberGen.nextInt(deck.size()));
         this.charInBattle.putInBattle();
-    }
-    public void action(Character target){
-        this.charInBattle.action(target, this.deck);
-    }
-    public void removeDeadChar(){
-        // Atualiza os contadores
-        if (this.charInBattle instanceof Warrior) warriorsQnt--;
-        if (this.charInBattle instanceof Archer) archersQnt--;
-        if (this.charInBattle instanceof Wizard) wizardsQnt--;
-        if (this.charInBattle instanceof Priest) priestsQnt--;
-        // Remove do deck
-        this.deck.remove(this.charInBattle);
-    }
-    public void healCharsOutOfBattle(){
-        for (Character character : deck){
-            if (character != this.charInBattle){
-                character.heal(character.con);
-            }
-        }
     }
 }

@@ -3,9 +3,9 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class Player {
-    private int warriorsQnt = 0, archersQnt = 0, wizardsQnt = 0, priestsQnt = 0;
-    private final ArrayList<Character> deck;
-    private Character charInBattle;
+    protected int warriorsQnt = 0, archersQnt = 0, wizardsQnt = 0, priestsQnt = 0;
+    protected ArrayList<Character> deck;
+    protected Character charInBattle;
     private final Scanner stdin = new Scanner(System.in);
 
     // Construtor
@@ -57,6 +57,10 @@ public class Player {
             }
         }
     }
+
+    // Construtor sem argumento que eh chamado na classe Enemy, se faz isso pois nao faz sentido chamar o
+    // construtor dessa classe na Enemy, pois o sistema de criacao de deck eh completamente diferente
+    public Player() {}
 
     public Character getCharInBattle(){ return charInBattle; }
     public ArrayList<Character> getDeck() { return deck; }
