@@ -37,7 +37,7 @@ public class Priest extends Character {
             int index = Integer.parseInt(stdin.nextLine())-1;
             target = deck.get(index);
         }
-        // Se for do enimigo
+        // Se for do inimigo
         else{
             ArrayList<Character> woundedChars = new ArrayList<>(); // Lista para guardar os personagens que podem ser curados (que sofreram dano)
 
@@ -49,13 +49,27 @@ public class Priest extends Character {
                 }
             }
 
-            Random randomNumberGen = new Random();
-            // Escolhe um personagem aleatorio
-            target = woundedChars.get(randomNumberGen.nextInt(woundedChars.size()));
+            // Se nao houver personagens que podem ser curados
+            if (woundedChars.isEmpty()){
+                // Cura a si mesmo
+                target = this;
+            }
+            else{
+                Random randomNumberGen = new Random();
+                // Escolhe um personagem aleatorio
+                target = woundedChars.get(randomNumberGen.nextInt(woundedChars.size()));
+            }
         }
 
         target.heal(this.faith); // Usa o metodo heal declarado na classe Character
-        System.out.println(this.getName()+" curou "+target.getName());
+
+        // Se o alvo for o proprio personagem
+        if (target == this){
+            System.out.println(this.getName()+" curou a si mesmo.");
+        }
+        else{
+            System.out.println(this.getName()+" curou "+target.getName());
+        }
         System.out.println();
     }
 }
