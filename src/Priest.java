@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Priest extends Character {
@@ -16,6 +17,7 @@ public class Priest extends Character {
 
     public void heal(ArrayList<Character> deck) {
         Scanner stdin = new Scanner(System.in);
+        Character target; // Variavel auxiliar que guarda o personagem que sera curado
 
         // Se o personagem for do jogador
         if (this.getOwner().equals("Jogador")) {
@@ -33,9 +35,27 @@ public class Priest extends Character {
             System.out.println();
             System.out.print("Insira o índice do personagem que deseja curar: ");
             int index = Integer.parseInt(stdin.nextLine())-1;
-            deck.get(index).heal(this.faith); // Usa o metodo heal declarado na classe Character
-            System.out.println();
-            System.out.println(this.getName()+" curou "+deck.get(index).getName());
+            target = deck.get(index);
         }
+        // Se for do enimigo
+        else{
+            ArrayList<Character> woundedChars = new ArrayList<>(); // Lista para guardar os personagens que podem ser curados (que sofreram dano)
+
+            for (Character character : deck){
+                // Se o personagem nao estiver de vida cheia
+                if (character.getHp() < character.getMaxHp()) {
+                    // Adiciona o personagem na lista
+                    woundedChars.add(character);
+                }
+            }
+
+            Random randomNumberGen = new Random();
+            // Escolhe um personagem aleatorio
+            target = woundedChars.get(randomNumberGen.nextInt(woundedChars.size()));
+        }
+
+        target.heal(this.faith); // Usa o metodo heal declarado na classe Character
+        System.out.println(this.getName()+" curou "+target.getName());
+        System.out.println();
     }
 }
