@@ -96,7 +96,13 @@ public abstract class Character implements Cloneable {
     }
     public void printCharInformation(){
         System.out.println(this.name+" ("+this.charClass+") Lv: "+this.level+"    XP: "+this.xp+"/"+this.maxXp);
-        System.out.println("HP: "+this.hp+"/"+this.maxHp+"    Atk: " +this.atk+"    Def: "+this.def+"    Agi: "+this.agi+"    Con: "+this.con);
+        // Se for um sacerdote
+        if (this instanceof Priest){
+            System.out.println("HP: "+this.hp+"/"+this.maxHp+"    Fe: " +((Priest) this).faith+"    Def: "+this.def+"    Agi: "+this.agi+"    Con: "+this.con);
+        }
+        else{
+            System.out.println("HP: "+this.hp+"/"+this.maxHp+"    Atk: " +this.atk+"    Def: "+this.def+"    Agi: "+this.agi+"    Con: "+this.con);
+        }
     }
     public void levelUp(){
         this.level++;

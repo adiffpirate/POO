@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Priest extends Character {
-    private int faith;
+    protected int faith;
     public Priest(String name, String owner) {
         super(name, "Sacerdote", owner);
         this.maxHp = this.hp = 75;
