@@ -12,7 +12,7 @@ Antes de começar, saiba que o número de batalhas e a quantidade de personagens
 
 **2.** Escolha um personagem para colocar em batalha, seu oponente escolherá um também.
 
-**3.** Caso seu personagem tenha mais _agilidade_ escolha qual ação ele realizará, senão, espere seu oponente fazer uma ação e depois pode agir. Em caso de empate, o primeiro atacante é decidido aleatoriamente.
+**3.** Caso o seu personagem tenha mais _agilidade_ escolha qual ação ele realizará, senão, espere seu oponente fazer uma ação e depois pode agir. Em caso de empate, o primeiro atacante é decidido aleatoriamente.
 > Se um personagem for morto, mesmo que tenha feito ação ou não, a batalha se encerra e quem foi derrotado entrega seus pontos de experiência para o adversário.
 
 **4.** Repita o passo 2 e 3 até que o número de batalhas acabe ou todos os personagens de um jogador morram.
@@ -30,7 +30,7 @@ HP|Atk|Def|Agi|Con
 100|50|20|10|10
 
 #### Arqueires 
-Atacam rápido e dão um dano considerável, porém são mais frágeis que seus companheiros de espada e escudo.
+Atacam rápido e dão um dano considerável, porém, são mais frágeis que os seus companheiros de espada e escudo.
 HP|Atk|Def|Agi|Con
 :-:|:-:|:-:|:-:|:-:
 75|70|10|20|5
@@ -42,7 +42,7 @@ HP|Atk|Def|Agi|Con
 50|100|5|5|5
 
 #### Sacerdotes 
-Seu suporte nas horas difíceis, conseguem curar os aliados (e a si mesmos) mas não podem atacar.
+Seu suporte nas horas difíceis, conseguem curar os aliados (e a si mesmos), mas não podem atacar.
 HP|Fe|Def|Agi|Con
 :-:|:-:|:-:|:-:|:-:
 100|100|0|20|5
@@ -53,11 +53,11 @@ HP|Fe|Def|Agi|Con
 Cada personagem tem uma série de atributos que são usados em diversas funções do jogo:
 
 #### Saúde (HP)
-Representa a vida do personagem, que é morto caso esse valor chegue a zero. É recuperada a cada batalha fora de combate (por um valor igual a quantidade de _constituição_ do personagem) e também via magias de cura, mas nunca podendo exceder seu valor máximo.
+Representa a vida do personagem, que é morto caso esse valor chegue a zero. É recuperada a cada batalha fora de combate (por um valor igual à quantidade de _constituição_ do personagem) e também via magias de cura, mas nunca podendo exceder seu valor máximo.
 
 #### Ataque (Atk)
 Usado por _Guerreires_, _Arqueires_ e _Bruxes_ para calcular o dano causado.
-> Dano = Ataque do personagem - Defesa do oponente
+> Dano = Ataque do personagem - Defesa do oponente.
 
 #### Fé (Fe)
 Usado por _Sacerdotes_ para calcular a cura realizada.
@@ -85,7 +85,7 @@ Level | Quantidade de XP necessária
 > Ou seja, a quantidade de XP necessária dobra a cada aumento de level, e não há limite de leveis.
 
 #### Level (Lv)
-Diz respeito à força de um personagem, quanto maior esse valor, mais forte e mais difícil de ser derrotado é o personagem. Quando alguém sobe de level, o valor seus atributos é aumentado, de acordo a seguinte tabela:
+Diz respeito à força de um personagem, quanto maior esse valor, mais forte e mais difícil de ser derrotado ele é. Quando alguém sobe de level, o valor seus atributos são aumentado, de acordo a seguinte tabela:
 
 Atributo | Aumento
 :------: | :-----:
@@ -98,7 +98,7 @@ Agilidade | x1.15
 
 ## Ações
 
-Existem 2 tipos de ações no jogo, cada personagem podendo realizar uma ação em seu turno. São elas:
+Existem 2 categorias de ações no jogo, cada personagem podendo realizar uma ação no seu turno. São elas:
 
 #### Ataque
 Causa dano a um oponente escolhido, diminuindo sua _saúde_ de acordo sua _defesa_.
@@ -113,9 +113,8 @@ Magia somente usada por _Sacerdotes_ que recupera a _saúde_ do alvo por uma qua
 É o ciclo que da ritmo ao jogo. No início de uma batalha cada jogador pega um personagem do deck e coloca em combate, aquele com maior valor de _agilidade_ atacará primeiro e depois é a vez do oponente. Ao final da batalha os personagens com _saúde_ voltam para o deck enquanto os mortos (caso hajam) entregam seus pontos de _experência_ ao adversário. Caso um personagem morra antes da sua vez ele é impossibilitado de realizar ações, ou seja, a batalha acaba quando alguém morre.
 
 #### Combate
-Um número determinado de batalhas. Acaba quando um jogador fica sem personagens no deck ou quando chegar ao número máximo de batalhas definido no início do jogo. Se o combate acabar porque o número máximo de batalhas foi alcançado, cada jogador soma os pontos de _experiência_ de seus personagens, consagrando ganhador do jogo aquele com mais pontos.
+É um número determinado de batalhas. Acaba quando um jogador fica sem personagens no deck ou quando chegar ao número máximo de batalhas definido no início do jogo. Se o combate acabar porque o número máximo de batalhas foi alcançado, cada jogador soma os pontos de _experiência_ dos seus personagens, consagrando ganhador do jogo aquele com maior quantidade.
 
 
 ## Sobre o projeto
-
 Deckquest foi criado por um pequeno grupo de alunos da USP - São Carlos para reforçar conceitos de Programação Orientada a Objetos, por isso o código é completamente encapsulado e escrito em JAVA.
