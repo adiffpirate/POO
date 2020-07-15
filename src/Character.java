@@ -99,16 +99,16 @@ public abstract class Character implements Cloneable {
     }
     public void levelUp(){
         this.level++;
-        this.maxHp *= 1.5;
-        this.hp = (int) (this.maxHp * 0.6);
+        this.maxHp *= 1.2;
+        this.hp = (int) (this.maxHp * 0.3);
         this.maxXp *= 2;
-        this.atk *= 1.5;
-        this.def *= 1.5;
-        this.con *= 2;
-        this.agi *= 1.5;
-        util.sleep(2); // Pequena pausa para leitura do usuario
+        this.atk *= 1.15;
+        this.def *= 1.15;
+        this.con *= 1.75;
+        this.agi *= 1.15;
         System.out.println();
         System.out.println(this.name+" subiu para o nível "+this.level+"!");
+        util.sleep(2); // Pequena pausa para leitura do usuario
         System.out.println();
     }
     public void stealXP(Character target){

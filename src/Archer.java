@@ -1,11 +1,10 @@
 public class Archer extends Character {
     public Archer(String name, String owner) {
         super(name, "Arqueire", owner);
-        this.maxHp = 75;
-        this.hp = 75;
-        this.atk = 100;
-        this.def = 25;
-        this.agi = 75;
+        this.maxHp = this.hp = 75;
+        this.atk = 70;
+        this.def = 10;
+        this.agi = 20;
         this.con = 5;
     }
 }
