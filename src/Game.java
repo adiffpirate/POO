@@ -9,6 +9,8 @@ public class Game {
     private final Random randomNumberGen = new Random();
     private final Player player;
     private final Enemy enemy;
+    private final int maxBattlesQnt;
+    private int battlesCounter=0;
 
     // Construtor
     public Game() {
@@ -35,24 +37,38 @@ public class Game {
         // Cria iterador
         Iterator<String> allCharactersNameItr = allCharactersName.iterator();
 
-        // Gera um numero aleatorio entre 4 e 8 para determinar a quantidade de personagens na batalha
-        int charactersInBattleQnt = randomNumberGen.nextInt(5)+4;
+        // Gera um numero aleatorio entre 4 e 8 para determinar a quantidade de personagens no combate
+        int charactersInCombatQnt = randomNumberGen.nextInt(5)+4;
+        // Gera um numero aleatorio entre 15 e 20 para determinar a quantidade maxima de batalhas
+        maxBattlesQnt = randomNumberGen.nextInt(6)+15;
 
-        System.out.println("### Nesse combate "+charactersInBattleQnt+" personagens irão lutar ###");
+        System.out.println("#######################################################");
+        System.out.println("###                                                 ###");
+        System.out.println("###     Nesse combate "+charactersInCombatQnt+" personagens irão lutar      ###");
+        System.out.println("###  e ele terá uma duração máxima de "+maxBattlesQnt+" batalhas   ###");
+        System.out.println("###                                                 ###");
+        System.out.println("#######################################################");
+        System.out.println();
         System.out.println("* Escolha a quantidade de personagens em cada classe *");
 
         // Cria jogador
-        player = new Player(charactersInBattleQnt, allCharactersNameItr);
+        player = new Player(charactersInCombatQnt, allCharactersNameItr);
         // Cria inimigo
-        enemy = new Enemy(charactersInBattleQnt, allCharactersNameItr);
+        enemy = new Enemy(charactersInCombatQnt, allCharactersNameItr);
     }
 
     public Player getPlayer() { return player; }
     public Enemy getEnemy() { return enemy; }
+    public int getMaxBattlesQnt() { return maxBattlesQnt; }
+    public int getBattlesCounter(){ return battlesCounter; }
 
     public void battle() {
         util.clearScreen();
 
+        // Atualiza o contador
+        battlesCounter++;
+
+        System.out.println("Batalha: "+battlesCounter+"/"+maxBattlesQnt);
         this.player.printDeck();
         this.enemy.printInfo();
 

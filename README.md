@@ -115,7 +115,7 @@ Magia somente usada por _Sacerdotes_ que recupera a _saúde_ do alvo por uma qua
 É o ciclo que da ritmo ao jogo. No início de uma batalha cada jogador pega um personagem do deck e coloca em combate, aquele com maior valor de _agilidade_ atacará primeiro e depois é a vez do oponente. Ao final da batalha os personagens com _saúde_ voltam para o deck enquanto os mortos (caso hajam) entregam seus pontos de _experência_ ao adversário. Caso um personagem morra antes da sua vez ele é impossibilitado de realizar ações, ou seja, a batalha acaba quando alguém morre.
 
 #### Combate
-Um número determinado de batalhas. Ao final do combate cada jogador soma os pontos de _experiência_ de seus personagens, consagrando ganhador do jogo aquele com mais pontos.
+Um número determinado de batalhas. Acaba quando um jogador fica sem personagens no deck ou quando chegar ao número máximo de batalhas definido no início do jogo. Se o combate acabar porque o número máximo de batalhas foi alcançado, cada jogador soma os pontos de _experiência_ de seus personagens, consagrando ganhador do jogo aquele com mais pontos.
 
 
 ## Sobre o projeto
