@@ -16,7 +16,10 @@ public class Priest extends Character {
 
     public void heal(ArrayList<Character> deck) {
         Scanner stdin = new Scanner(System.in);
-        Character target; // Variavel auxiliar que guarda o personagem que sera curado
+        // Variavel auxiliar que guarda o personagem que sera curado, inicia com o this pois
+        // se nao houver personagens disponiveis para curar, cura a si mesmo
+        Character target = this;
+        boolean charsAvailableToHeal = false;
 
         // Se o personagem for do jogador
         if (this.getOwner().equals("Jogador")) {
@@ -29,12 +32,17 @@ public class Priest extends Character {
                     int index = deck.indexOf(character)+1;
                     System.out.println("["+(index)+"] "+character.getName()+" ("+character.getCharClass()+") " +
                             "HP: "+character.getHp()+"/"+character.getMaxHp());
+                    charsAvailableToHeal = true;
                 }
             }
-            System.out.println();
-            System.out.print("Insira o índice do personagem que deseja curar: ");
-            int index = Integer.parseInt(stdin.nextLine())-1;
-            target = deck.get(index);
+
+            // Se houver personagens disponiveis para curar
+            if(charsAvailableToHeal){
+                System.out.println();
+                System.out.print("Insira o índice do personagem que deseja curar: ");
+                int index = Integer.parseInt(stdin.nextLine())-1;
+                target = deck.get(index);
+            }
         }
         // Se for do inimigo
         else{
@@ -45,15 +53,12 @@ public class Priest extends Character {
                 if (character.getHp() < character.getMaxHp()) {
                     // Adiciona o personagem na lista
                     woundedChars.add(character);
+                    charsAvailableToHeal = true;
                 }
             }
 
-            // Se nao houver personagens que podem ser curados
-            if (woundedChars.isEmpty()){
-                // Cura a si mesmo
-                target = this;
-            }
-            else{
+            // Se houver personagens que podem ser curados
+            if(charsAvailableToHeal){
                 Random randomNumberGen = new Random();
                 // Escolhe um personagem aleatorio
                 target = woundedChars.get(randomNumberGen.nextInt(woundedChars.size()));
