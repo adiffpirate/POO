@@ -35,8 +35,8 @@ public class Game {
         // Cria iterador
         Iterator<String> allCharactersNameItr = allCharactersName.iterator();
 
-        // Gera um numero aleatorio entre 5 e 10 para determinar a quantidade de personagens na batalha
-        int charactersInBattleQnt = randomNumberGen.nextInt(6)+5;
+        // Gera um numero aleatorio entre 4 e 8 para determinar a quantidade de personagens na batalha
+        int charactersInBattleQnt = randomNumberGen.nextInt(5)+4;
 
         System.out.println("### Nesse combate "+charactersInBattleQnt+" personagens irão lutar ###");
         System.out.println("* Escolha a quantidade de personagens em cada classe *");

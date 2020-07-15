@@ -64,7 +64,7 @@ public class Priest extends Character {
 
         // Se o alvo for o proprio personagem
         if (target == this){
-            System.out.println(this.getName()+" curou a si mesmo.");
+            System.out.println(this.getName()+" curou a si mesmo");
         }
         else{
             System.out.println(this.getName()+" curou "+target.getName());
