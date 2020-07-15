@@ -27,25 +27,25 @@ Existem 4 classes no jogo:
 Equilibrados em ataque e defesa, são sua confiável linha de frente em qualquer momento.
 HP|Atk|Def|Agi|Con
 :-:|:-:|:-:|:-:|:-:
-100|75|25|50|10
+100|50|20|10|10
 
 #### Arqueires 
 Atacam rápido e dão um dano considerável, porém são mais frágeis que seus companheiros de espada e escudo.
 HP|Atk|Def|Agi|Con
 :-:|:-:|:-:|:-:|:-:
-75|100|25|75|5
+75|70|10|20|5
 
 #### Bruxes 
 A classe que mais demora atacar no jogo, mas quando conseguem conjurar sua magia é melhor sair da frente. Causam um dano absurdo, mas também morrem bem fácil.
 HP|Atk|Def|Agi|Con
 :-:|:-:|:-:|:-:|:-:
-75|125|10|25|5
+50|100|5|5|5
 
 #### Sacerdotes 
 Seu suporte nas horas difíceis, conseguem curar os aliados (e a si mesmos) mas não podem atacar.
 HP|Fe|Def|Agi|Con
 :-:|:-:|:-:|:-:|:-:
-100|50|25|80|5
+75|50|10|20|5
 
 
 ## Atributos
@@ -90,13 +90,13 @@ Diz respeito à força de um personagem, quanto maior esse valor, mais forte e m
 Atributo | Aumento
 :------: | :-----:
 XP Máxima | x2
-Saúde Máxima | x1.5
-Ataque / Fé | x1.5
-Defesa | x1.5
-Constituição | x2
-Agilidade | x1.5
+Saúde Máxima | x1.2
+Ataque / Fé | x1.15
+Defesa | x1.15
+Constituição | x1.75
+Agilidade | x1.15
 
-> Obs.: Ao subir de nível o HP do personagem será restaurado em até 60% de seu HP máximo
+> Obs.: Ao subir de nível o HP do personagem será restaurado em até 30% de seu HP máximo
 
 ## Ações
 
