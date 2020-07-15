@@ -6,10 +6,10 @@ public class Priest extends Character {
     protected int faith;
     public Priest(String name, String owner) {
         super(name, "Sacerdote", owner);
-        this.maxHp = this.hp = 75;
+        this.maxHp = this.hp = 100;
         this.atk = 0;
-        this.faith = 75;
-        this.def = 10;
+        this.faith = 100;
+        this.def = 0;
         this.agi = 20;
         this.con = 5;
     }

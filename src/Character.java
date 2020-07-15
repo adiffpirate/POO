@@ -106,9 +106,9 @@ public abstract class Character implements Cloneable {
     }
     public void levelUp(){
         this.level++;
-        this.maxHp *= 1.2;
-        // Se o hp atual for menor que 30% do hp maximo, recupera o hp ate esse valor
-        if (this.hp < this.maxXp * 0.3){ this.hp = (int) (this.maxHp * 0.3); }
+        int hpIncreasedAmount = (int) (this.maxHp * 0.2);
+        this.maxHp += hpIncreasedAmount;
+        this.hp += hpIncreasedAmount;
         this.maxXp *= 2;
         this.atk *= 1.15;
         this.def *= 1.15;

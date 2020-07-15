@@ -45,7 +45,7 @@ HP|Atk|Def|Agi|Con
 Seu suporte nas horas difíceis, conseguem curar os aliados (e a si mesmos) mas não podem atacar.
 HP|Fe|Def|Agi|Con
 :-:|:-:|:-:|:-:|:-:
-75|50|10|20|5
+100|100|0|20|5
 
 
 ## Atributos
@@ -95,8 +95,6 @@ Ataque / Fé | x1.15
 Defesa | x1.15
 Constituição | x1.75
 Agilidade | x1.15
-
-> Obs.: Ao subir de nível o HP do personagem será restaurado em até 30% de seu HP máximo
 
 ## Ações
 
