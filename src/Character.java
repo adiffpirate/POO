@@ -59,6 +59,8 @@ public abstract class Character implements Cloneable {
         this.inBattle = false;
     }
     public void action(Character target, ArrayList<Character> hisDeck){
+        System.out.println("("+this.owner+") "+this.name+" faz sua ação");
+        util.sleep(2); // Pequena pausa para leitura do usuario
         // Se o personagem em batalha for um sacerdote
         if (this instanceof Priest){
             ((Priest) this).heal(hisDeck);
@@ -66,9 +68,10 @@ public abstract class Character implements Cloneable {
         else{
             this.attack(target);
         }
+        System.out.println();
     }
     public void attack(Character target) {
-        System.out.println("("+this.owner+") "+this.name+" ataca");
+        System.out.println(this.name+" ataca "+target.name);
         util.sleep(2); // Pequena pausa para leitura do usuario
         // Calcula o dano
         int damage = this.atk - target.def;
@@ -92,7 +95,6 @@ public abstract class Character implements Cloneable {
             System.out.println(this.name+" foi morto");
         }
         util.sleep(2); // Pequena pausa para leitura do usuario
-        System.out.println();
     }
     public void printCharInformation(){
         System.out.println(this.name+" ("+this.charClass+") Lv: "+this.level+"    XP: "+this.xp+"/"+this.maxXp);

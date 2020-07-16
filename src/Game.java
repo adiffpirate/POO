@@ -4,7 +4,6 @@ import java.io.*;
 
 public class Game {
     private final ArrayList<String> allCharactersName;
-    private final Scanner stdin = new Scanner(System.in);
     private final Util util = new Util();
     private final Random randomNumberGen = new Random();
     private final Player player;
@@ -60,21 +59,22 @@ public class Game {
     public Player getPlayer() { return player; }
     public Enemy getEnemy() { return enemy; }
     public int getMaxBattlesQnt() { return maxBattlesQnt; }
-    public int getBattlesCounter(){ return battlesCounter; }
-
     public void battle() {
         util.clearScreen();
 
         // Atualiza o contador
         battlesCounter++;
 
+        // Imprime as informacoes do jogador e seu inimigo
         System.out.println("Batalha: "+battlesCounter+"/"+maxBattlesQnt);
         this.player.printDeck();
         this.enemy.printInfo();
 
+        // Escolhe os personagens que irao para batalha
         this.player.chooseCharToPutInBattle();
         this.enemy.chooseCharToPutInBattle();
 
+        // ### Inicia a batalha ###
         util.clearScreen();
         System.out.println("################## SEU PERSONAGEM ##################");
         System.out.println();
@@ -167,4 +167,6 @@ public class Game {
         player.getCharInBattle().putOutOffBattle();
         enemy.getCharInBattle().putOutOffBattle();
     }
+
+    public int getBattlesCounter(){ return battlesCounter; }
 }
