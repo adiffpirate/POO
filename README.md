@@ -1,7 +1,31 @@
 # Deckquest
 
 Um jogo simples, single-player, offline, e em turnos para te entreter um pouco nessa pandemia.
-  
+
+## Sumário
+
+- [Como jogar](#como-jogar)
+- [Classes](#classes)
+  - [Guerreires](#guerreires)
+  - [Arqueires](#arqueires)
+  - [Bruxes](#bruxes)
+  - [Sacerdotes](#sacerdotes)
+- [Atributos](#atributos)
+  - [HP](#saúde-hp)
+  - [ATK](#ataque-atk)
+  - [FE](#fé-fe)
+  - [DEF](#defesa-def)
+  - [CON](#constituição-con)
+  - [AGI](#agilidade-agi)
+  - [XP](#experiência-xp)
+  - [LV](#level-lv)
+- [Ações](#ações)
+  - [Ataque](#ataque)
+  - [Cura](#cura)
+- [Glossário](#glossário)
+  - [Batalha](#batalha)
+  - [Combate](#combate)
+- [Sobre o projeto](#sobre-o-projeto)
   
 ## Como jogar
 
